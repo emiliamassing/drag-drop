@@ -1,15 +1,15 @@
+import { handleDrop } from "../service/cards";
+
 const numbers: string[] = ['4', '10', '5', '2', '3'];
-const app: HTMLDivElement = document.querySelector('#app') as HTMLDivElement;
-const main: HTMLElement = document.querySelector('.main') as HTMLElement;
+const cardContainer: HTMLDivElement = document.querySelector('.cardContainer') as HTMLDivElement;
 
-const cardContainer: HTMLDivElement = document.createElement('div');
-cardContainer.className = 'cardContainer';
-
-main.append(cardContainer);
-app.appendChild(main);
 
 cardContainer.addEventListener('dragover', (e: DragEvent) => {
+  e.preventDefault();
+});
 
+cardContainer.addEventListener('drop', (e: DragEvent) => {
+  handleDrop(e, cardContainer);
 });
 
 export function renderCards():void {

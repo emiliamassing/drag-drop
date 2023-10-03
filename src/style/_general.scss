@@ -42,11 +42,15 @@ body {
     }
 
     .cardContainer {
+      background-color: var.$bgCardColor;
+      border-radius: 10px;
+      box-shadow: rgba(85, 85, 85, 0.25) 0px 5px 10px;
       display: flex;
       justify-content: space-around;
       width: 50vw;
       margin: 0 auto;
       margin-top: 3em;
+      padding: 1em;
     }
 
     .card {
