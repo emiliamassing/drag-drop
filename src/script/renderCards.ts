@@ -1,8 +1,14 @@
-import { handleDrop } from "../service/cards";
+import { Card } from "../models/Card";
+import { handleDrop } from "../service/cardService";
 
-const numbers: string[] = ['4', '10', '5', '2', '3'];
+let numbers: Card[] = [
+  new Card('4'),
+  new Card('10'),
+  new Card('5'),
+  new Card('2'),
+  new Card('3') 
+];
 const cardContainer: HTMLDivElement = document.querySelector('.cardContainer') as HTMLDivElement;
-
 
 cardContainer.addEventListener('dragover', (e: DragEvent) => {
   e.preventDefault();
@@ -19,11 +25,12 @@ export function renderCards():void {
 
     card.draggable = true;
     card.className = 'card';
-    card.id = number;
 
-    heading.innerHTML = number;
+    card.id = number.value;
 
-    card.appendChild(heading);
+    heading.innerHTML = number.value;
+
+    card.append(heading);
     cardContainer.appendChild(card);
 
     card.addEventListener('dragstart', (e: DragEvent) => {

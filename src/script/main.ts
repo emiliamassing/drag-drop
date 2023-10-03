@@ -1,4 +1,4 @@
-import { handleDrop } from '../service/cards';
+import { handleDrop } from '../service/cardService';
 import '../style/_general.scss';
 import { renderCards } from './renderCards';
 const resultContainer: HTMLDivElement = document.querySelector('.resultContainer') as HTMLDivElement;
