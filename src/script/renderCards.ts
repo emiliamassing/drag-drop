@@ -2,11 +2,15 @@ const numbers: string[] = ['4', '10', '5', '2', '3'];
 const app: HTMLDivElement = document.querySelector('#app') as HTMLDivElement;
 const main: HTMLElement = document.querySelector('.main') as HTMLElement;
 
-const cardContainer: HTMLDivElement = document.createElement('div') as HTMLDivElement;
+const cardContainer: HTMLDivElement = document.createElement('div');
 cardContainer.className = 'cardContainer';
 
 main.append(cardContainer);
 app.appendChild(main);
+
+cardContainer.addEventListener('dragover', (e: DragEvent) => {
+
+});
 
 export function renderCards():void {
   numbers.map((number) => {
