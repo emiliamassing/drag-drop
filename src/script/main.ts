@@ -1,14 +1,25 @@
-import { handleDrop } from '../service/cardService';
+import { calculateSum, handleDrop } from '../service/cardService';
 import '../style/_general.scss';
 import { renderCards } from './renderCards';
-const resultContainer: HTMLDivElement = document.querySelector('.resultContainer') as HTMLDivElement;
+import { renderSummary } from './renderSummary';
+const dropContainer: HTMLDivElement = document.querySelector('.dropContainer') as HTMLDivElement;
 
-resultContainer.addEventListener('dragover', (e: DragEvent) => {
+dropContainer.addEventListener('dragover', (e: DragEvent) => {
   e.preventDefault();
 });
 
-resultContainer.addEventListener('drop', (e: DragEvent) => {
-  handleDrop(e, resultContainer);
+dropContainer.addEventListener('drop', (e: DragEvent) => {
+  handleDrop(e, dropContainer);
+  
+  const sum = calculateSum(dropContainer);
+  renderSummary(sum);
+});
+
+dropContainer.addEventListener('dragend', (e: DragEvent) => {
+  e.preventDefault();
+
+  const sum = calculateSum(dropContainer);
+  renderSummary(sum);
 });
 
 renderCards();

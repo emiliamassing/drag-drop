@@ -7,6 +7,21 @@ export function handleDrop(e: DragEvent, container: HTMLDivElement) {
 
         if(draggedCard) {
             container.appendChild(draggedCard);
-        }
+        };
     };
+};
+
+export function calculateSum(container: HTMLDivElement): number {
+    let sum = 0;
+    const cardsInContainer = container.querySelectorAll('.card');
+  
+    cardsInContainer.forEach((card) => {
+        const cardValue = +card.id;
+  
+        if(!isNaN(cardValue)) {
+            sum += cardValue; 
+        };
+    });
+  
+    return sum;
 };
